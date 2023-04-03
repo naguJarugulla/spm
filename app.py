@@ -487,8 +487,8 @@ def viewfile(fid):
     #if we want only the pdf file we use the mime_type(explicit convertion))
     else:
         return redirect(url_for('login'))
-@app.route('/fileview/<fid>')
-def fileview(fid):
+@app.route('/downloadfile/<fid>')
+def downloadfile(fid):
     if session.get('user'):
         cursor=mysql.connection.cursor()
         cursor.execute('select filename,filedata from files where fid=%s',[fid])
